@@ -13,6 +13,7 @@ for i in range(length):
     a = lists[i]
     f.write(str(a))
     f.write("\r")
+    f.write("0\n")
     def value(x1,x2,x3,x4):
         return a[0]*(x1**2)+a[1]*(x2**2)+a[2]*(x3**2)+a[3]*(x4**2)
     def weight(x1,x2,x3,x4):
@@ -27,7 +28,7 @@ for i in range(length):
             time = time * 2
         return time
 
-    for n in range(0,1001): # take range of n as 0-1000
+    for n in range(0,101): # take range of n as 0-1000
         result = 0
         for x1 in range(0,int(math.sqrt(n))+1):
             if value(x1,0,0,0) > n:
@@ -43,8 +44,5 @@ for i in range(length):
                             result = result + 1*weight(x1,x2,x3,x4)
         s.append(result)
         f.writelines(str(result))
-        f.write('\n')
-
-
-        
+        f.write('\n')        
     f.close()
